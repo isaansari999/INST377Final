@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Time! 🐶</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav id="globalNav">
+        <ul>
+            <li><strong><a href="custompicker.html">Pick a Breed, Get Some Dogs</a></strong></li>
+            <li><strong><a href="about.html">About</a></strong></li>
+            <li><strong><a href="home.html">Home</a></strong></li>
+        </ul>
+    </nav>
+    <section id="mainContent">
+        <h1>Dogs! 🐶</h1>
+        <div class="holders" id="container">
+            <div class="glider-contain">
+                <div id="glider">
+                  
+                </div>
+              
+                <button aria-label="Previous" class="glider-prev">«</button>
+                <button aria-label="Next" class="glider-next">»</button>
+                <div role="tablist" id="dots"></div>
+              </div>
+        </div>
+
+        <div class="holders" id="secondHolder">
+
+            <p>Welcome to my website! Above you can see 5 random pictures of dogs. If you'd like to get another random 5 click the button below!</p>
+            
+            <button class="button" onclick=location.reload()>
+            <div class="blob1"></div>
+            <div class="blob2"></div>
+            <div class="inner">Another five dogs!</div>
+            </button>
+            <br>
+            
+            <p>Feel free to explore the website! You can also choose to fetch pictures of any dog breed of your choice <a href=custompicker.html>here!</a>!</p>
+
+            
+        </div>
+    </section>
+</body>
+</html>
