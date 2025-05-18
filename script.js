@@ -32,7 +32,7 @@ async function loadDogs() {
 
 
 
-if (window.location.href.includes("home.html")) {
+if (window.location.href.includes("index.html")) {
   loadDogs();
 }
 
