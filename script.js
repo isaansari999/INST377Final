@@ -122,13 +122,17 @@ async function getdaDogs() {
       });
       document.getElementById("glider").style.visibility = 'visible';
 
-      fetch ('/api/log', {
+      /*fetch ('/api/log', {
         method: 'POST',
         headers: {
           'content-Type': 'application/json'
         }, 
         body: JSON.stringify({  breed: chosenBreed  })
-      })
+      })*/
+
+      await window.supabase
+        .from('search_logs')
+        .insert([{ breed: chosenBreed }]);
 
 }
 
