@@ -126,12 +126,77 @@ async function getdaDogs() {
       });
       document.getElementById("glider").style.visibility = 'visible';
 
-      await window.supabase
+      /*await window.supabase
         .from('userBreeds')
         .insert([{ breeds: chosenBreed }]);
         console.log("this working")
 
+        loadUserBreeds();*/
+        chosenBreed;
+        await fetch('/userBreeds', {
+          method: 'POST',
+            headers: {
+    'Content-Type': 'application/json'
+  },
+          body: JSON.stringify({
+              breed: `${chosenBreed}`
+          })
+        })
+        loadUserBreeds();
+
 }
+
+const ourDiv = document.getElementById("userBreedsDiv")
+async function loadUserBreeds() {
+  ourDiv.style.visibility = 'visible'
+  await fetch('/userBreeds')
+  .then((result => result.json()))
+  .then((resultJson) => {
+    
+    const table = document.createElement('table');
+    table.setAttribute('id', 'userBreeds');
+
+    const tableRow = document.createElement('tr');
+
+    const tableHeadBreed = document.createElement('th');
+    tableHeadBreed.innerHTML = 'Breed Requested';
+    //tableRow.appendChild(tableHeadDate);
+    tableRow.appendChild(tableHeadBreed);
+    //console.log(tableHeadDate.innerHTML)
+
+    
+    const tableHeadDate = document.createElement('th');
+    tableHeadDate.innerHTML = 'Date logged';
+    //tableRow.appendChild(tableHeadBreed);
+    tableRow.appendChild(tableHeadDate);
+    console.log(ourDiv);
+    table.appendChild(tableRow)
+
+    //ourDiv.appendChild(table);
+    console.log(resultJson);
+    resultJson.forEach((fetchedBreed) => {
+      const tableDataRow = document.createElement('tr')
+      const tableDateLoggedData = document.createElement('td')
+      const tableBreedData = document.createElement('td')
+      
+
+      tableBreedData.innerHTML = fetchedBreed.breeds;
+      tableDateLoggedData.innerHTML = fetchedBreed.created_at;
+
+      tableDataRow.appendChild(tableBreedData);
+      tableDataRow.appendChild(tableDateLoggedData);
+
+      table.appendChild(tableDataRow)
+    })
+    let preExistingTable = document.getElementById('userBreeds')
+    if (preExistingTable) {
+      preExistingTable.remove();
+    }
+
+    ourDiv.appendChild(table);
+  });
+}
+
 
 
 
