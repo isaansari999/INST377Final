@@ -41,6 +41,8 @@ if (window.location.href.includes("index.html")) {
 
 async function breedsList() {
   const res = await fetch("https://dog.ceo/api/breeds/list/all")
+  const ignore = await fetch("/api/breeds");
+  console.log(ignore);
   const data = await res.json();
   const breeds = data.message
   

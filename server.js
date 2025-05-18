@@ -19,6 +19,19 @@ const supabase = createClient(
 
 )
 
+app.get('/api/breeds', async(req, res) => {
+    const { data, error } = await supabase
+    .from('breeds')
+    .select('*');
+
+    if (error) {
+        console.log("error fetching doggo breeds", error)
+        return res.status(500).json({error: "failed to get da dawgs" });
+    }
+    
+    res.json(data);
+}); 
+
 app.post('/api/log', async (req, res) => {
     const { breed } = req.body;
 
