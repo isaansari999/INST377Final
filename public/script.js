@@ -43,6 +43,7 @@ if (!window.location.href.includes("about.html") && !window.location.href.includ
 
 async function breedsList() {
   /*const res = await fetch("https://dog.ceo/api/breeds/list/all")*/
+  console.log("sopmething");
   const ignore = await fetch('/breed');
   const blob = await ignore.json();
   console.log(blob);
@@ -53,8 +54,8 @@ async function breedsList() {
   const dropdown = document.getElementById("breedSelect");
 
   for (i=0; i<blob.length; i++) {
-    console.log(blob[i].name)
-    console.log(blob[i].value)
+    console.log(blob[i].name);
+    console.log(blob[i].value);
     const option = document.createElement("option");
     option.value = blob[i].value;
     option.textContent = blob[i].name;
