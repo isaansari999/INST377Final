@@ -34,7 +34,7 @@ app.get('/api/breeds', async(req, res) => {
 
 app.post('/api/log', async (req, res) => {
     const { breed } = req.body;
-
+    console.log("server working")
     const { error } = await supabase
 
         .from('search_logs')
