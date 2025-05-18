@@ -43,7 +43,7 @@ if (!window.location.href.includes("about.html") && !window.location.href.includ
 
 async function breedsList() {
   /*const res = await fetch("https://dog.ceo/api/breeds/list/all")*/
-  const ignore = await fetch('/breed');
+  const ignore = await fetch('/api/breed');
   const blob = await ignore.json();
   console.log(blob);
   
