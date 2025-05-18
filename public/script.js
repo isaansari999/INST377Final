@@ -40,33 +40,24 @@ if (window.location.href.includes("index.html")) {
 
 
 async function breedsList() {
-  const res = await fetch("https://dog.ceo/api/breeds/list/all")
-  const ignore = await fetch('/api/breeds');
-  console.log(ignore);
-  const data = await res.json();
-  const breeds = data.message
+  /*const res = await fetch("https://dog.ceo/api/breeds/list/all")*/
+  const ignore = await fetch('/breed');
+  const blob = await ignore.json();
+  console.log(blob);
+  
+  /*const data = await res.json();*/
+  //const breeds = data.message/*
   
   const dropdown = document.getElementById("breedSelect");
 
-  for (const breed in breeds) {
-    if (breeds[breed].length > 0) {
-      breeds[breed].forEach(sub => {
-        const option = document.createElement("option");
-        option.value = `${breed}/${sub}`;
-        option.textContent = `${breed} ${sub}`;
-        dropdown.appendChild(option);
-      });
-      
-    }
-    else {
-      const option = document.createElement("option")
-      option.value = breed;
-      option.textContent = breed;
-      dropdown.appendChild(option);
-    }
+  for (i=0; i<blob.length; i++) {
+    console.log(blob[i].name)
+    console.log(blob[i].value)
+    const option = document.createElement("option");
+    option.value = blob[i].value;
+    option.textContent = blob[i].name;
+    dropdown.appendChild(option);
   }
-
-  
 }
 
 let glider = null;

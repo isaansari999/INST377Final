@@ -11,15 +11,20 @@ const port = 3000
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(__dirname + '/public'));
 
 const supabase = createClient(
     process.env.SUPABASE_URL,
     process.env.SUPABASE_KEY
 
 )
+app.get('/', async (req, res) => {
+    res.sendFile('index.html' , { root: __dirname});
+}); 
 
-app.get('/api/breeds', async(req, res) => {
+
+app.get('/breed', async (req, res) => {
+    console.log("woob")
     const { data, error } = await supabase
     .from('breeds')
     .select('*');
@@ -29,24 +34,8 @@ app.get('/api/breeds', async(req, res) => {
         return res.status(500).json({error: "failed to get da dawgs" });
     }
     
-    res.json(data);
+    res.send(data);
 }); 
-
-app.post('/api/log', async (req, res) => {
-    const { breed } = req.body;
-    console.log("server working")
-    const { error } = await supabase
-
-        .from('search_logs')
-        .insert([{ breed }]);
-
-
-    if (error) {
-        return res.status(500).json({ error });
-    }
-
-    res.json({ message: 'Search logged'});
-})
 
 
 app.listen(port, () => {
