@@ -122,8 +122,8 @@ async function getdaDogs() {
       document.getElementById("glider").style.visibility = 'visible';
 
       await window.supabase
-        .from('search_logs')
-        .insert([{ breed: chosenBreed }]);
+        .from('userBreeds')
+        .insert([{ breeds: chosenBreed }]);
         console.log("this working")
 
 }
