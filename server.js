@@ -18,7 +18,7 @@ const supabase = createClient(
     process.env.SUPABASE_KEY
 
 )
-app.get('/', async (req, res) => {
+app.get('/index.html', async (req, res) => {
     res.sendFile('index.html' , { root: __dirname});
 }); 
 

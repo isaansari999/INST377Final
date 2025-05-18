@@ -36,6 +36,12 @@ if (window.location.href.includes("index.html")) {
   loadDogs();
 }
 
+if (!window.location.href.includes("about.html") && !window.location.href.includes("custompicker.html")) {
+  loadDogs();
+}
+
+
+
 
 
 
