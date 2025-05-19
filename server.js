@@ -96,7 +96,9 @@ app.listen(port, () => {
     }
   }
 
-  const { error } = await supabase.from('populate').insert(breedList); // REPLACE 'breeds' with desired table's name. This will then be your breeds table that you call to populate the dropdown menu on custompicker.html via /breed
+  const { error } = await supabase
+  .from('populate')
+  .insert(breedList); // REPLACE 'populate' with desired table's name. This will then be your breeds table that you call to populate the dropdown menu on custompicker.html via /breed
 
   if (error) {
     console.error('Failed to insert breeds:', error);

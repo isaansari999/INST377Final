@@ -157,22 +157,19 @@ async function loadUserBreeds() {
     table.setAttribute('id', 'userBreeds');
 
     const tableRow = document.createElement('tr');
-
     const tableHeadBreed = document.createElement('th');
     tableHeadBreed.innerHTML = 'Breed Requested';
-    //tableRow.appendChild(tableHeadDate);
     tableRow.appendChild(tableHeadBreed);
-    //console.log(tableHeadDate.innerHTML)
+    
 
     
     const tableHeadDate = document.createElement('th');
     tableHeadDate.innerHTML = 'Date logged';
-    //tableRow.appendChild(tableHeadBreed);
     tableRow.appendChild(tableHeadDate);
     console.log(ourDiv);
     table.appendChild(tableRow)
 
-    //ourDiv.appendChild(table);
+    
     console.log(resultJson);
     resultJson.forEach((fetchedBreed) => {
       const tableDataRow = document.createElement('tr')
