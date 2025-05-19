@@ -9,3 +9,16 @@ Dog Breed Picker is a full functioning web application with front and back-end s
 The website's intended browser is primarily for desktop. Whether it be Firefox, Google Chrome, or any other desktop browser of choice. 
 
 **Link to Developer Manual: [Developer Manual](#developer-manual).**
+
+
+# Developer Manual
+
+## Audience 
+To any developers who will maintain and continue building on this project, it is crucial you understand HTML, CSS, Javascript, web application development, and back-end server development for API calls. 
+
+## Installation
+First the repository must be cloned. Following this, dependencies must be installed for website functionality. Run the following in the terminal:
+
+```
+npm install
+```
