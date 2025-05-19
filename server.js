@@ -60,7 +60,7 @@ app.post('/userBreeds', async (req, res) => {
 app.get('/breed', async (req, res) => {
     console.log("woob")
     const { data, error } = await supabase
-    .from('breeds')
+    .from('breeds') // Replace with whatever your breed table is, see below for more
     .select('*');
 
     if (error) {
@@ -77,3 +77,32 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 });
 
+// ONLY RUN THIS ONCE TO POPULATE SUPABASE TABLE WITH ALL DOG BREEDS
+
+
+/*async function populateBreedsTable() {
+  const res = await fetch('https://dog.ceo/api/breeds/list/all');
+  const data = await res.json();
+
+  const breedList = [];
+
+  for (const breed in data.message) {
+    if (data.message[breed].length > 0) {
+      data.message[breed].forEach(sub => {
+        breedList.push({ name: `${breed} ${sub}`, value: `${breed}/${sub}` });
+      });
+    } else {
+      breedList.push({ name: breed, value: breed });
+    }
+  }
+
+  const { error } = await supabase.from('populate').insert(breedList); // REPLACE 'breeds' with desired table's name. This will then be your breeds table that you call to populate the dropdown menu on custompicker.html via /breed
+
+  if (error) {
+    console.error('Failed to insert breeds:', error);
+  } else {
+    console.log('Breeds successfully inserted into Supabase!');
+  }
+}
+
+populateBreedsTable();*/

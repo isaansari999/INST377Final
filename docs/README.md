@@ -22,3 +22,19 @@ First the repository must be cloned. Following this, dependencies must be instal
 ```
 npm install
 ```
+
+Once all packages/dependencies have been installed, a .env file MUST be created in the root directory with the following:
+
+```
+SUPABASE_URL = your_supabase-url
+SUPABASE_KEY = your_supaase-key
+```
+
+## API Documentation
+Before running the application server, the API endpoints in server.js must be functional. To accomplish this, two supabase tables must be created following the addition of your .env file. 
+
+```
+GET /breed
+```
+Fetches all dog breeds from Supabase **breeds** table. The spelling is important.
+Notice: You must utilize the dog CEO api to remotely populate the database first
